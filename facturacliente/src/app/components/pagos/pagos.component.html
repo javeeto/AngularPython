@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="text-center">
+        <h4>Acuerdo de pago realizado</h4>
+        <h4>Estimado: {{cliente.cliente_nombre}}</h4>
+    </div>
+    <table mat-table [dataSource]="acuerdos" class="mat-elevation-z8" style="width:100%;">
+        <ng-container matColumnDef="acuerdo_id">
+            <th mat-header-cell *matHeaderCellDef>Acuerdo</th>
+            <td mat-cell *matCellDef="let acuerdo"> {{acuerdo.acuerdo_id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="acuerdo_fecha_pago">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let acuerdo"> {{acuerdo.acuerdo_fecha_pago}} </td>
+        </ng-container>
+        <ng-container matColumnDef="acuerdo_valor">
+            <th mat-header-cell *matHeaderCellDef>Valor</th>
+            <td mat-cell *matCellDef="let acuerdo"> {{acuerdo.acuerdo_valor}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['acuerdo_id', 'acuerdo_fecha_pago', 'acuerdo_valor']"></tr>
+        <tr mat-row *matRowDef="let fila; columns: ['acuerdo_id', 'acuerdo_fecha_pago', 'acuerdo_valor'];"></tr>
+
+    </table>
+
+    <table class="mat-table mat-elevation-z8" role="grid" style="width:100%;">
+        <tr class="mat-row" role="row">
+            <td class="mat-cell" role="columnheader"><strong>TOTAL</strong></td>
+            <td class="mat-cell" role="columnheader"></td>
+            <td class="mat-cell" role="columnheader"><strong>{{total}}.00</strong></td>
+        </tr>
+    </table>
+    <form>
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+                <h4>Agradecemos su pago</h4>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+                <span>
+                    <button type="button" (click)="logout()" class="btn btn-primary" mat-flat-button
+                        color="accent">Salir</button>
+                </span>
+            </div>
+        </div>
+
+    </form>
+</div>

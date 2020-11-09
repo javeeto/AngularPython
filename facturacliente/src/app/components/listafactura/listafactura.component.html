@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="text-center">
+        <h4>Listado de facturas pendientes</h4>
+        <h4>Estimado: {{cliente.cliente_nombre}}</h4>
+    </div>
+    <table mat-table [dataSource]="ofertas" class="mat-elevation-z8" style="width:100%;">
+        <ng-container matColumnDef="oferta_id">
+            <th mat-header-cell *matHeaderCellDef>Factura</th>
+            <td mat-cell *matCellDef="let oferta"> {{oferta.oferta_id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="oferta_dias_mora">
+            <th mat-header-cell *matHeaderCellDef>Dias mora</th>
+            <td mat-cell *matCellDef="let oferta"> {{oferta.oferta_dias_mora}} </td>
+        </ng-container>
+        <ng-container matColumnDef="oferta_valor">
+            <th mat-header-cell *matHeaderCellDef>Valor</th>
+            <td mat-cell *matCellDef="let oferta"> {{oferta.oferta_valor}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['oferta_id', 'oferta_dias_mora', 'oferta_valor']"></tr>
+        <tr mat-row *matRowDef="let fila; columns: ['oferta_id', 'oferta_dias_mora', 'oferta_valor'];"></tr>
+
+    </table>
+
+    <table class="mat-table mat-elevation-z8" role="grid" style="width:100%;">
+        <tr class="mat-row" role="row">
+            <td class="mat-cell" role="columnheader"><strong>TOTAL</strong></td>
+            <td class="mat-cell" role="columnheader"></td>
+            <td class="mat-cell" role="columnheader"><strong>{{total}}.00</strong></td>
+        </tr>
+    </table>
+    <form>
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+                <h4>¿Puede realizar este pago?</h4>
+            </div>
+        </div>
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+                <span>
+                    <button type="button" (click)="aceptaAcuerdo()" class="btn btn-primary" mat-flat-button
+                        color="accent">Si</button>
+                </span>
+                &nbsp;&nbsp;&nbsp;
+                <span>
+                    <button type="button" (click)="niegaAcuerdo()" class="btn btn-primary" mat-flat-button
+                        color="accent">No</button>
+                </span>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,29 @@
+.contenedor-padre {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.barra {
+    flex: 0 1 auto;
+}
+
+.contenido {
+    flex: 1 1 auto;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+.nav-logo-small {
+    display:block !important;
+    position: relative;
+    left: 0px;   
+    width: 34px;
+}
+#whatsapp{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: none;
+}

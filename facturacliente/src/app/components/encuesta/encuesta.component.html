@@ -1,0 +1,35 @@
+<div class="container">
+    <h2>Encuesta</h2>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group ">
+            <div class="form-mascota">
+                <label>Por que no puede realizar el pago ? seleccione una opcion</label>
+            </div>
+        </div>
+
+        <mat-radio-group id="razonnopago" name="razonnopago" formControlName="razonnopago"
+            aria-label="Select an option">
+            <div class="form-group ">
+                <div class="form-mascota">
+                    <mat-radio-button value="1">No tengo la suma
+                    </mat-radio-button>
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class="form-mascota">
+                    <mat-radio-button value="2">Esperare el siguiente mes
+                    </mat-radio-button>
+                </div>
+            </div>
+        </mat-radio-group>
+
+
+        <div class="form-group ">
+            <div class="form-mascota text-center">
+                <button mat-raised-button type="submit" class="btn btn-primary" mat-flat-button color="accent"
+                    [disabled]="myForm.invalid">Enviar</button>
+
+            </div>
+        </div>
+    </form>
+</div>

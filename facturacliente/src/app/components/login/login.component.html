@@ -1,0 +1,30 @@
+
+<div class="container">
+    <h2>Cliente <mat-icon>face</mat-icon></h2>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+        <p>
+        <mat-form-field class="form-mascota" >
+            <input matInput id="identificacion" name="identificacion" [(ngModel)]="clienteModel.cliente_identificacion"
+                   type="text"
+                   placeholder="Identificacion"
+                   formControlName="identificacion"  >
+        </mat-form-field>
+        </p>        
+
+    </div>
+    <div *ngIf="myForm.get('identificacion').invalid && (myForm.get('identificacion').dirty || myForm.get('identificacion').touched)"
+         color='danger' class="form-mascota alert alert-danger" >
+        <p color="danger" *ngIf="myForm.get('identificacion').hasError('required')">Identificacion obligatorio</p>
+        <p color="danger" *ngIf="myForm.get('identificacion').hasError('minlength')">Identificacion debe ser de al menos 4  caracteres.</p>
+        <p color="danger" *ngIf="myForm.get('identificacion').hasError('pattern')">Identificacion debe ser numerico.</p>
+    </div>
+    <div class="form-mascota"> 
+    </div>
+    <div class="form-group ">
+        <div class="form-mascota text-center">
+            <button type="submit" class="btn btn-primary" mat-flat-button color="accent" [disabled]="myForm.invalid">Ingresar</button>
+        </div>
+    </div>
+</form>
+</div>

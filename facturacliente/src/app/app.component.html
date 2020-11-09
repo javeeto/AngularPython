@@ -1,0 +1,59 @@
+<div class="contenedor-padre">
+  <mat-toolbar class="barra" color="primary">
+    <mat-toolbar-row>
+      <button  *ngIf="currentCliente" (click)="cajon.toggle()" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>
+        <a routerLink="/factura/login"><img class="nav-logo-small" src="/assets/imgs/1.png" /></a>
+      </span>
+      <span>
+        Facturas cliente&nbsp;
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-sidenav-container   class="contenido">
+     <mat-sidenav  style="min-width: 300px;" #cajon mode="side">
+      <div  *ngIf="currentCliente">
+      <mat-nav-list>       
+        <a mat-list-item  routerLink="/factura/lista">
+          <mat-icon color="accent">list</mat-icon>
+          Ver facturas
+        </a> 
+        <a mat-list-item (click)="logout(cajon)">
+          <mat-icon color="primary">exit_to_app</mat-icon>
+          Salir
+        </a>
+      </mat-nav-list>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Más
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <mat-nav-list>
+
+            <a mat-list-item href="https://api.whatsapp.com/send?phone=+340000000000&text=hola">
+              <img class="nav-logo-small" src="/assets/imgs/whatsapp.png" title="Escríbenos por Whastapp"
+                alt="Escríbenos por Whastapp">
+              WhatsApp
+            </a>
+
+            <a mat-list-item href="tel:+1-1800-555-5555" class="button button-positive">
+              <mat-icon color="primary">phone</mat-icon>
+              &nbsp;&nbsp;Llamar
+            </a>
+          
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="padding-10">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.form-mascota{
+    display: block;
+    width: 100%;
+    height: calc(1.5rem + .75rem + 2px);
+    padding: 0rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    padding-bottom: 1.5rem !important;
+    
+    
+    border-radius: .25rem;
+    
+    }
